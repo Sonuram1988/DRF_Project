@@ -30,9 +30,9 @@ def post_data():
 
 def update_post():
     data={
-        'id':3,
-        'roll':103,
-        'city':'Tohana'
+        'id':2,
+        'name':'Sonu',
+        'city':'Chandigarh'
     }
 
     json_data=json.dumps(data)
