@@ -1,5 +1,5 @@
 """
-WSGI config for g7 project.
+WSGI config for gs7 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'g7.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gs7.settings')
 
 application = get_wsgi_application()
