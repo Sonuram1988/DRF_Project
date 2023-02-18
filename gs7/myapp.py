@@ -26,7 +26,7 @@ def post_data():
     data=r.json()
     print(data)
 
-# post_data()
+post_data()
 
 def update_post():
     data={
@@ -40,7 +40,7 @@ def update_post():
     data=r.json()
     print(data)
 
-update_post()
+# update_post()
 
 def delete_data():
     data={'id':13}
