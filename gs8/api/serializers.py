@@ -1,44 +1,35 @@
 from rest_framework import serializers
 from .models import Student
 
-# validators
-def start_with_r(value):
-    if value[0].lower()!='r':
-        raise serializers.ValidationError("name should be start with r")
-    return value
+class StudentSerializer(serializers.ModelSerializer):
+    #validators
+    def start_with_r(value):
+        if value[0].lower()!='r':
+            raise serializers.ValidationError("name should be start with r")
+        return value
 
-
-class StudentSerializer(serializers.Serializer):
-    name=serializers.CharField(max_length=50,validators=[start_with_r])
-    roll=serializers.IntegerField()
-    city=serializers.CharField(max_length=50)
-
-    def create(self, validated_data):
-        return Student.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        print(instance.name)
-        instance.name=validated_data.get('name',instance.name)
-        print(instance.name)
-        instance.roll=validated_data.get('roll',instance.roll)
-        instance.city=validated_data.get('city',instance.city)
-        instance.save()
-        return instance
+    name=serializers.CharField(validators=[start_with_r])
     
-    def validate_roll(self, value):
-        if value >=200:
-            raise serializers.ValidationError("Seats are full")
-        else:
-            return value
+    class Meta:
+        model=Student
+        fields=['name','roll','city']
+
+    # def validate_roll(self, value):
+    #     if value >=200:
+    #         raise serializers.ValidationError("Seats are full")
+    #     else:
+    #         return value
 
     # object level validation
-    def validate(self, data):
-        nm=data.get('name')
-        ct=data.get('city')
+    # def validate(self, data):
+    #     nm=data.get('name')
+    #     ct=data.get('city')
 
-        if nm.lower()=='Aditya' and ct.lower()!= 'Delhi':
-            raise serializers.ValidationError("City should be Hissar")
-        return data
+    #     if nm.lower()=='Aditya' and ct.lower()!= 'Delhi':
+    #         raise serializers.ValidationError("City should be Hissar")
+    #     return data
+
+    
 
        
     
