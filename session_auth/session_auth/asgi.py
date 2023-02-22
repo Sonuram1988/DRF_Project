@@ -1,5 +1,5 @@
 """
-ASGI config for gs19 project.
+ASGI config for session_auth project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gs19.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'session_auth.settings')
 
 application = get_asgi_application()
