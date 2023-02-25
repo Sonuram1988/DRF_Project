@@ -4,12 +4,25 @@
 
 # to verify token
 
-ttp POST http://127.0.0.1:8000/verifytoken/ token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjEzNTgxLCJpYXQiOjE2NzcyMTMyODEsImp0aSI6ImM5M2IwZDQwYTRjOTQxOTI4MDZkNTk3NjRlMzhlMDRiIiwidXNlcl9pZCI6Mn0.ESxUWCJ6BxqGY7Vz1v91VDS10Eio731BJ5hv5mWTriI"
+http POST http://127.0.0.1:8000/verifytoken/ token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjEzNTgxLCJpYXQiOjE2NzcyMTMyODEsImp0aSI6ImM5M2IwZDQwYTRjOTQxOTI4MDZkNTk3NjRlMzhlMDRiIiwidXNlcl9pZCI6Mn0.ESxUWCJ6BxqGY7Vz1v91VDS10Eio731BJ5hv5mWTriI"
 
 # to create token after 5 minute
 
 http POST http://127.0.0.1:8000/refreshtoken/ refresh="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3NzI5OTY4MSwiaWF0IjoxNjc3MjEzMjgxLCJqdGkiOiIwZmU3YTQzZWU5NjY0N2IzOGU3NDNiMDVhNzgzZjQ3OCIsInVzZXJfaWQiOjJ9.mx8RFNolIWYuC9IGHvxx3wc91c_Np3Ea4is9pU2WGLk"
-
+ 
 # it is used to get data from api
 
 http http://127.0.0.1:8000/studentapi/ 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjE1ODA1LCJpYXQiOjE2NzcyMTMyODEsImp0aSI6IjIxYzVmYTdjY2E2ZDQzMTQ5YzM4MzQ0YjMyODkxMjk4IiwidXNlcl9pZCI6Mn0.x0CpyKSyZvUE0UECojboZ2oSnOhuFJa-A3CTmjOOwZc'
+
+# to insert data in database
+http -f POST http://127.0.0.1:8000/studentapi/ name='shiva' roll=104 city='mt. abu' 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjE3Mzc2LCJpYXQiOjE2NzcyMTMyODEsImp0aSI6IjA0OWRiOWE1ZWUwZDQxZTRhMzk5NzYwNmYzZjRkMDNlIiwidXNlcl9pZCI6Mn0.t-m6fY92DpoGQzBTVBoO_jkHZKY97XvPcOtarEW9rpE'
+
+# to update data in database
+
+ http PUT http://127.0.0.1:8000/studentapi/4/ name='shivam' roll=104 city='mt. abu' 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjE3Mzc2LCJpYXQiOjE2NzcyMTMyODEsImp0aSI6IjA0OWRiOWE1ZWUwZDQxZTRhMzk5NzYwNmYzZjRkMDNlIiwidXNlcl9pZCI6Mn0.t-m6fY92DpoGQzBTVBoO_jkHZKY97XvPcOtarEW9rpE'
+
+# to delete record in database
+http DELETE http://127.0.0.1:8000/studentapi/4/ 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3MjE3NzgxLCJpYXQiOjE2NzcyMTMyODEsImp0aSI6IjIxOTdlYWQxOWNlZTRiMWQ4Y2JlNjQ4ZmE1ZTA2Y2EzIiwidXNlcl9pZCI6Mn0.z4Viyh-Y5sZXKHADX1XzMUjlmSjTsoIGOWDvE4Q_OgE'
+
+
+ 
