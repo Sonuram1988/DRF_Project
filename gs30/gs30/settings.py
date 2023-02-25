@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%6^l*9_eb)eiva=)+s0ig+0509+n7kz9h@&!bk-w2a4spo8-6p'
+SECRET_KEY = 'django-insecure-b7$zv!7rl-ogv*a@-=ij^49(m=4quy$(6^(-f2uk&0t1xcpr95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +123,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK={
+    'DEFAULT_THROTTLE_RATES':{
+        'viewstu':'5/hour',
+        'viewcreate':'3/minute',
+        'viewupdate':'2/minute',
+        'viewdestroy':'3/minute',
+
+    }
+}
